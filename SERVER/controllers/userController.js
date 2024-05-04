@@ -5,17 +5,16 @@ const {generateAccessToken,generateRefreshToken} =  require("../config/generateT
 
 
 const registerUser = asyncHandler( async (req,res) =>{
-    console.log(req.body)
     const { name,email,password,pic} = req.body;
 
     if(!name || !email || !password){
-        res.status(400);
+        res.status(400).json({message:"Please Enter all the Feilds"})
         throw new Error("Please Enter all the Feilds");
     }
     const userExists = await User.findOne({email:email})
     if(userExists){
         console.log(userExists)
-        res.status(400)
+        res.status(400).json({message:"User Already Exists"})
         throw new Error("User Already Exists");
     }
 
@@ -39,11 +38,11 @@ const registerUser = asyncHandler( async (req,res) =>{
             refreshToken: refreshToken
         })
     }else{
-        res.status(400);
-        throw new Error("Failed To Create User")
+        res.status(400).json({ message: "Invalid Email or Password" })
+        // throw new Error("Failed To Create User")
     }
 })
-const loginUser =asyncHandler(async(req,res)=>{
+const loginUser = asyncHandler(async(req,res)=>{
     const {email,password} = req.body;
     const user = await User.findOne({email});
     if(user && (await user.matchPassword(password))){
@@ -61,8 +60,7 @@ const loginUser =asyncHandler(async(req,res)=>{
         })
     }
     else{
-        res.status(401);
-        throw new Error("Invalid Email or Password")
+        res.status(401).json({ message: "Invalid Email or Password" });
     }
 })
 const getNewAccessToken = asyncHandler(async(req,res)=>{

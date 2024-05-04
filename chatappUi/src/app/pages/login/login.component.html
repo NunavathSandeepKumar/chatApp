@@ -3,22 +3,28 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
-            <form>
+            <form [formGroup]="signUpForm">
                 <label for="chk" aria-hidden="true">Sign up</label>
-                <input type="text" name="txt" placeholder="User name" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Password" required="">
-                <button (click)="signup()" >Sign up</button>
+                <input type="text" formControlName="name" placeholder="User name">
+                <input type="email" formControlName="email" placeholder="Email" [ngClass]="{'error-border': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched}">
+                <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="error-label">Invalid email</div>
+                <input type="password" formControlName="password" placeholder="Password" [ngClass]="{'error-border': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched}">
+                <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="error-label">Password must be at least 8 characters long</div>
+                <button type="button" (click)="onSignUp()"[disabled]="signUpForm.invalid">Sign up</button>
             </form>
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div> <!-- Display error message -->
         </div>
         
         <div class="login">
-            <form>
+            <form [formGroup]="loginForm">
                 <label for="chk" aria-hidden="true">Login</label>
-                <input type="email" [(ngModel)]="loginObj.Email" name="Email" placeholder="Email" required="">
-                <input type="password" [(ngModel)]="loginObj.Password"  name="Password" placeholder="Password" required="">
-                <button (click)="onlogin()">Login</button>
+                <input type="email" formControlName="email" placeholder="Email" [ngClass]="{'error-border': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-label">Invalid email</div>
+                <input type="password" formControlName="password" placeholder="Password" [ngClass]="{'error-border': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
+                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-label">Password must be at least 8 characters long</div>
+                <button type="button" (click)="onLogin()"[disabled]="loginForm.invalid">Login</button>
             </form>
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div> <!-- Display error message -->
         </div>
     </div>
 </div>

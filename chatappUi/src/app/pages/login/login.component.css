@@ -78,6 +78,11 @@ button:hover{
 	color: #050514;
 	transform: scale(.6);
 }
+.error{
+	color: red;
+	/* background-color: antiquewhite; */
+	text-align: center;
+}
 
 #chk:checked ~ .login{
 	transform: translateY(-500px);
@@ -87,4 +92,16 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+.error-border {
+    border:solid red;
+	/* background-color: aqua */
+}
+.error-label{
+	color: red;
+	text-align: center;
+	height: 1px;
+	padding: 0px;
+	margin-top: -15px; /* Adjust this value as needed */
+    margin-bottom: 5px;
 }
