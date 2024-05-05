@@ -9,13 +9,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SideMenuComponent } from './pages/side-menu/side-menu.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ChatsComponent } from './pages/chats/chats.component';
+import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LayoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    SideMenuComponent,
+    ProfileComponent,
+    ChatsComponent,
+    BookmarksComponent,
+    NotificationsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
