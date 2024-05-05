@@ -112,7 +112,7 @@ const logout = asyncHandler(async(req,res)=>{
 })
 const getAllUsers = asyncHandler(async (req, res) => {
     try {
-        const users = await User.find({});
+        const users = await User.find({}, { password: false, refreshTokens: false });
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' });
