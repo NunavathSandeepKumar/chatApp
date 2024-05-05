@@ -5,6 +5,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const { connectDb } = require('./config/mongoConnection');
 const userRoutes = require("./routes/userRoutes")
+const authRouter = require('./routes/authRoutes');
 const app = express();
 app.use(cors())
 app.use(express.json());
@@ -27,7 +28,8 @@ app.get('/',(req,res)=>{
     res.send("API is Running Successfully");
 })
 
-app.use('/api',userRoutes)
+app.use('/api/user',userRoutes)
+app.use('/api/auth', authRouter);
 
 // app.get('/posts', authenticateToken, (req, res) => {
 //     res.json(posts.filter(post => post.username === req.user.name))

@@ -1,0 +1,10 @@
+.sideBar{
+    width : 5%;
+    float: left;
+    height: 100%;
+}
+.layout{
+    width: 25%;
+    height: 100vh;
+    background-color: rgba(95, 158, 160, 0.841);
+}
