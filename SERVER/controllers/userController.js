@@ -110,13 +110,24 @@ const logout = asyncHandler(async(req,res)=>{
         res.status(500).json({ message: "Internal Server Error." });
     }
 })
-const getAllUsers = asyncHandler(async (req, res) => {
+const getUsers = asyncHandler(async (req, res) => {
     try {
-        const users = await User.find({}, { password: false, refreshTokens: false });
-        res.status(200).json(users);
+        if (req.query.userId) {
+            // If userId is provided in query parameters, return the specific user
+            const user = await User.findById(req.query.userId, { password: false, refreshTokens: false });
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            return res.status(200).json(user);
+        } else {
+            // If userId is not provided, return all users
+            const users = await User.find({}, { password: false, refreshTokens: false });
+            return res.status(200).json(users);
+        }
     } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 
-module.exports  = {registerUser,loginUser,getAllUsers,getNewAccessToken,logout}
+module.exports  = {registerUser,loginUser,getUsers,getNewAccessToken,logout}

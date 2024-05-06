@@ -98,7 +98,7 @@ const createGroupChat = expressAsyncHandler(async (req, res) => {
 const addToGroup = expressAsyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
-  const added = await Chat.findOneAndUpdate({chatId},{$push: { users: userId },},{ new: true })
+  const added = await Chat.findOneAndUpdate({_id:chatId},{$push: { users: userId },},{ new: true })
     .populate("users", "-password -refreshTokens")
     .populate("groupAdmin", "-password -refreshTokens");
 
@@ -106,14 +106,14 @@ const addToGroup = expressAsyncHandler(async (req, res) => {
   if (!added) {
     res.status(404);
   }
-  res.status(200).json({message:"added succesfully"})
+  res.status(200).json(added)
 });
 
 const removeFromGroup = expressAsyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
   const removed = await Chat.findOneAndUpdate(
-    {chatId},
+    {_id:chatId},
     {
       $pull: { users: userId },
     },

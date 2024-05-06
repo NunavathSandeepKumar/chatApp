@@ -7,6 +7,6 @@ router.post("/",userController.registerUser);
 router.post("/login", userController.loginUser);
 router.post("/token",userController.getNewAccessToken);
 router.post("/logout",authenticateToken,userController.logout)
-router.get("/users",authenticateToken, userController.getAllUsers);
+router.get("/users",authenticateToken, userController.getUsers);
 
 module.exports = router

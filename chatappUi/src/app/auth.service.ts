@@ -48,15 +48,15 @@ export class AuthService {
     localStorage.setItem(this.refreshTokenKey, refreshToken);
   }
 
-  private storeAccessToken(accessToken: string) {
+  storeAccessToken(accessToken: string) {
     localStorage.setItem(this.accessTokenKey, accessToken);
   }
 
-  private getAccessToken(): string | null {
+  getAccessToken(): string | null {
     return localStorage.getItem(this.accessTokenKey);
   }
 
-  private getRefreshToken(): string | null {
+  getRefreshToken(): string | null {
     return localStorage.getItem(this.refreshTokenKey);
   }
 
@@ -77,7 +77,7 @@ export class AuthService {
     });
   }
 
-  private clearTokensAndNavigateToLogin() {
+   clearTokensAndNavigateToLogin() {
     localStorage.removeItem(this.accessTokenKey);
     localStorage.removeItem(this.refreshTokenKey);
     this.router.navigate(['/login']);
