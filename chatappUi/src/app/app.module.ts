@@ -15,6 +15,11 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { ChatWindowComponent } from './pages/chat-window/chat-window.component';
+import { MessageComponent } from './pages/message/message.component';
+import { MessageInputComponent } from './pages/message-input/message-input.component';
+import { ChatService } from './chat.service';
+import { SocketIoModule } from 'ngx-socket-io';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { SettingsComponent } from './pages/settings/settings.component';
     ChatsComponent,
     BookmarksComponent,
     NotificationsComponent,
-    SettingsComponent
+    SettingsComponent,
+    ChatWindowComponent,
+    MessageComponent,
+    MessageInputComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +43,10 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // SocketIoModule.forRoot({ url: 'http://localhost:3000', options: {} })
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

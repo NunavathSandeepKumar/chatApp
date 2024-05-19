@@ -1,0 +1,8 @@
+<div class="message">
+    <div class="photo" [style.background-image]="'url(' + message.sender.pic + ')'">
+      <div class="online"></div>
+    </div>
+    <p class="text">{{ message.content }}</p>
+    <p class="time">{{ message.createdAt | date:'HH:mm' }}</p>
+  </div>
+  

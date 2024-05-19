@@ -1,46 +1,37 @@
-<div class="col-sm-auto bg-primary-subtle sticky-top"style="height: 100vh;overflow-y: auto;">
-    <div class="d-flex flex-sm-column flex-row flex-nowrap bg-primary-subtle align-items-center sticky-top" style="height: 100%;">
-        <a routerLink="/dashboard/chats" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip"
-            data-bs-placement="right" data-bs-original-title="Icon-only">
+<div class="col-sm-auto sticky-top sideBar" style="overflow-y: auto;">
+    <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top" style="height: 100%;">
+        <a routerLink="/dashboard/chats" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="d-block p-3 linkdark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
             <i class="bi bi-house-door-fill fs-1"></i>
         </a>
-        <ul
-            class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+        <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
             <li class="nav-item">
-                <a routerLink="/dashboard/profile" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-original-title="profile">
+                <a routerLink="/dashboard/profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="profile">
                     <i class="bi bi-person-circle fs-2"></i>
                 </a>
             </li>
-            <li>
-                <a routerLink="/dashboard/chats" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-original-title="messages">
+            <li class="nav-item">
+                <a routerLink="/dashboard/chats" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="messages">
                     <i class="bi bi-chat-text fs-2"></i>
                 </a>
             </li>
-            <li>
-                <a routerLink="/dashboard/bookmarks" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-original-title="bookmarks">
+            <li class="nav-item">
+                <a routerLink="/dashboard/bookmarks" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="bookmarks">
                     <i class="bi bi-bookmarks fs-2"></i>
                 </a>
             </li>
-            <li>
-                <a routerLink="/dashboard/notifications" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-original-title="notifications">
+            <li class="nav-item">
+                <a routerLink="/dashboard/notifications" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="notifications">
                     <i class="bi bi-bell fs-2"></i>
                 </a>
             </li>
-            <li>
-                <a routerLink="/dashboard/settings"class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-original-title="settings">
+            <li class="nav-item">
+                <a routerLink="/dashboard/settings" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="settings">
                     <i class="bi bi-gear fs-2"></i>
                 </a>
             </li>
         </ul>
         <div class="dropdown mt-auto">
-            <a href="#"
-                class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="#" class="d-flex align-items-center  linkdark justify-content-center p-3 text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-person-circle h2"></i>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3" style=" z-index: 1000;">
@@ -51,4 +42,3 @@
         </div>
     </div>
 </div>
- 

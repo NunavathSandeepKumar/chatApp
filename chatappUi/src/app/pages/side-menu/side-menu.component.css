@@ -1,0 +1,14 @@
+.nav-link {
+    color: #a0a0a0f0;
+}
+.sticky-top {
+    background-color: #495057;
+}
+
+.nav-item .nav-link.active-link {
+    color: rgb(12, 226, 12);
+}
+
+.linkdark{
+    color: aliceblue;
+}
